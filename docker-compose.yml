@@ -1,0 +1,12 @@
+version: '2.4'
+services: 
+  cors-everywhere:
+    image: windsekirun/docker-cors-everywhere
+    container_name: cors-everywhere
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      - CORSANYWHERE_BLACKLIST=
+      - CORSANYWHERE_WHITELIST=
+      - CORSANYWHERE_RATELIMIT=50 3
