@@ -7,13 +7,12 @@ ENV HOST "0.0.0.0"
 
 WORKDIR /usr/src/app
 
-RUN apk install git
-
+RUN apk update && apk upgrade && apk add --no-cache bash git openssh
 RUN git clone https://github.com/Rob--W/cors-anywhere .
 
-COPY package*.json ./
+COPY . .
+
 RUN npm install
 
-COPY . .
 EXPOSE 8080
 CMD [ "node", "server.js" ] 
